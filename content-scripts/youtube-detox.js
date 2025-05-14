@@ -6,11 +6,12 @@ function handleNavigation() {
         return;
     }
     
-    // Redirect home page to subscription feed
+    // Redirect home page and trending to subscription feed
     if (window.location.pathname === '/' || 
         window.location.pathname === '/home' ||
         window.location.pathname.startsWith('/feed/recommended') ||
-        window.location.pathname.startsWith('/feed/explore')) {
+        window.location.pathname.startsWith('/feed/explore') ||
+        window.location.pathname.startsWith('/feed/trending')) {
         window.location.replace('/feed/subscriptions');
     }
 }

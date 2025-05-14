@@ -13,7 +13,13 @@ ytd-mini-guide-entry-renderer a[title="Shorts"] {
     display: none !important;
 }
 
-/* Hide Explorer section */
+/* Hide unwanted sidebar elements */
+ytd-guide-entry-renderer[aria-label="Home"],
+ytd-mini-guide-entry-renderer[aria-label="Home"],
+ytd-guide-section-renderer[aria-label="More from YouTube"],
+ytd-guide-section-renderer#sections > ytd-guide-section-renderer:not(:first-child),
+ytd-guide-section-renderer.style-scope:nth-child(3),
+ytd-guide-section-renderer.style-scope:nth-child(4),
 ytd-guide-section-renderer[aria-label="Explore"],
 ytd-guide-entry-renderer[aria-label="Trending"],
 ytd-guide-entry-renderer[aria-label="Music"],
@@ -22,6 +28,11 @@ ytd-guide-entry-renderer[aria-label="Gaming"],
 ytd-guide-entry-renderer[aria-label="Sports"],
 ytd-guide-entry-renderer[aria-label="News"],
 ytd-guide-entry-renderer[aria-label="Learning"],
-ytd-guide-entry-renderer[aria-label="Fashion & Beauty"] {
+ytd-guide-entry-renderer[aria-label="Fashion & Beauty"],
+ytd-guide-entry-renderer[aria-label="YouTube Music"],
+ytd-guide-entry-renderer[aria-label="YouTube Kids"],
+ytd-guide-entry-renderer[aria-label="YouTube TV"],
+ytd-guide-entry-renderer[aria-label="Browse channels"],
+ytd-guide-entry-renderer[aria-label="Manage subscriptions"] {
     display: none !important;
 } 
