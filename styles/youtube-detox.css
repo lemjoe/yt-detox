@@ -1,0 +1,27 @@
+/* Only hide recommendations sidebar on video pages */
+ytd-watch-flexy #secondary #related {
+    display: none !important;
+}
+
+/* Hide Shorts from navigation */
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+ytd-guide-entry-renderer[aria-label="Shorts"],
+[endpoint="/shorts"],
+ytd-guide-entry-renderer[title="Shorts"],
+ytd-guide-entry-renderer a[title="Shorts"],
+ytd-mini-guide-entry-renderer a[title="Shorts"] {
+    display: none !important;
+}
+
+/* Hide Explorer section */
+ytd-guide-section-renderer[aria-label="Explore"],
+ytd-guide-entry-renderer[aria-label="Trending"],
+ytd-guide-entry-renderer[aria-label="Music"],
+ytd-guide-entry-renderer[aria-label="Movies"],
+ytd-guide-entry-renderer[aria-label="Gaming"],
+ytd-guide-entry-renderer[aria-label="Sports"],
+ytd-guide-entry-renderer[aria-label="News"],
+ytd-guide-entry-renderer[aria-label="Learning"],
+ytd-guide-entry-renderer[aria-label="Fashion & Beauty"] {
+    display: none !important;
+} 

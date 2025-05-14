@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Detox",
+  "version": "1.0",
+  "description": "Remove distracting elements from YouTube to help you stay focused",
+  
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+
+  "permissions": [
+    "*://*.youtube.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "css": ["styles/youtube-detox.css"],
+      "js": ["content-scripts/youtube-detox.js"]
+    }
+  ]
+} 
