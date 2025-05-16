@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "YouTube Detox",
   "version": "1.1.1",
+  "homepage_url": "https://github.com/lemjoe/yt-detox",
   "description": "Transform YouTube into a focused, distraction-free space. Remove Shorts, recommendations, and stay in control of your viewing experience.",
   "author": "Alexander Ignatov",
   
