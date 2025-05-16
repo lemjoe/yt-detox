@@ -2,6 +2,7 @@
 function handleNavigation() {
     // Redirect shorts, home page and trending to subscription feed
     if (window.location.pathname.startsWith('/shorts') ||
+        window.location.pathname.endsWith('/shorts') ||
         window.location.pathname === '/' || 
         window.location.pathname === '/home' ||
         window.location.pathname.startsWith('/feed/recommended') ||
@@ -42,6 +43,15 @@ function removeDistractingElements() {
         '.ytp-ce-element'                           // Clickable end screen elements
     ];
 
+    const shortsSelectors = [
+        'ytd-rich-shelf-renderer:has(#title-text[title="Shorts"])',  // Shorts shelf in feeds
+        'ytd-rich-section-renderer:has(#title-text[title="Shorts"])', // Alternative shorts section
+        'ytd-reel-shelf-renderer',                                    // Another shorts container
+        'ytd-video-renderer:has(a[href*="/shorts/"])',               // Individual short videos in feeds
+        'yt-tab-shape[tab-title="Shorts"]',                          // Shorts tab in navigation
+        'tp-yt-paper-tab:has(paper-item[role="tab"][aria-label="Shorts"])'  // Alternative Shorts tab structure
+    ];
+
     // Remove sidebar elements
     const sidebarElements = document.querySelectorAll(sidebarSelectors.join(','));
     sidebarElements.forEach(element => element.remove());
@@ -49,6 +59,10 @@ function removeDistractingElements() {
     // Remove end screen recommendations
     const endScreenElements = document.querySelectorAll(endScreenSelectors.join(','));
     endScreenElements.forEach(element => element.remove());
+
+    // Remove shorts from feeds
+    const shortsElements = document.querySelectorAll(shortsSelectors.join(','));
+    shortsElements.forEach(element => element.remove());
 }
 
 // Run immediately when script loads
