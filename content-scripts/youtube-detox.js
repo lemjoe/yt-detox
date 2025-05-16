@@ -1,13 +1,8 @@
 // Block navigation to Shorts URLs and redirect home to feed
 function handleNavigation() {
-    // If we're on a shorts page, redirect to feed
-    if (window.location.pathname.startsWith('/shorts')) {
-        window.location.replace('/feed/subscriptions');
-        return;
-    }
-    
-    // Redirect home page and trending to subscription feed
-    if (window.location.pathname === '/' || 
+    // Redirect shorts, home page and trending to subscription feed
+    if (window.location.pathname.startsWith('/shorts') ||
+        window.location.pathname === '/' || 
         window.location.pathname === '/home' ||
         window.location.pathname.startsWith('/feed/recommended') ||
         window.location.pathname.startsWith('/feed/explore') ||
@@ -41,8 +36,19 @@ function removeDistractingElements() {
         'ytd-guide-entry-renderer[aria-label="Shorts"]'
     ];
 
+    const endScreenSelectors = [
+        'ytd-watch-next-secondary-results-renderer',  // End screen recommendations
+        '.ytp-endscreen-content',                    // Video end screen overlay
+        '.ytp-ce-element'                           // Clickable end screen elements
+    ];
+
+    // Remove sidebar elements
     const sidebarElements = document.querySelectorAll(sidebarSelectors.join(','));
     sidebarElements.forEach(element => element.remove());
+
+    // Remove end screen recommendations
+    const endScreenElements = document.querySelectorAll(endScreenSelectors.join(','));
+    endScreenElements.forEach(element => element.remove());
 }
 
 // Run immediately when script loads
