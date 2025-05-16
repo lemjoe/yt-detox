@@ -30,6 +30,10 @@ This Firefox extension transforms YouTube into a focused, distraction-free space
   - Works with YouTube's single-page application design
   - Maintains functionality while browsing subscriptions
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a list of changes between versions.
+
 ## Installation
 
 1. Open Firefox and go to `about:debugging`

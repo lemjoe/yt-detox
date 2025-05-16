@@ -13,6 +13,29 @@ ytd-watch-flexy #primary {
     margin: 0 auto !important;
 }
 
+/* Hide end screen recommendations */
+.ytp-ce-element,
+.ytp-ce-covering-overlay,
+.ytp-ce-element-shadow,
+.ytp-ce-covering-image,
+.ytp-ce-expanding-image,
+.ytp-ce-video,
+.ytp-ce-playlist,
+.ytp-ce-channel,
+.ytp-ce-website,
+.ytp-endscreen-content {
+    display: none !important;
+}
+
+/* Hide Shorts tab everywhere */
+yt-tab-shape[tab-title="Shorts"],
+tp-yt-paper-tab:has(paper-item[role="tab"][aria-label="Shorts"]),
+[role="tab"][title="Shorts"],
+[role="tab"][pagesubtitle="Shorts"],
+ytcp-text-dropdown-trigger[label="Shorts"] {
+    display: none !important;
+}
+
 /* Hide Shorts from navigation */
 ytd-mini-guide-entry-renderer[aria-label="Shorts"],
 ytd-guide-entry-renderer[aria-label="Shorts"],
