@@ -1,6 +1,16 @@
-/* Only hide recommendations sidebar on video pages */
-ytd-watch-flexy #secondary #related {
+/* Hide the entire secondary content area */
+ytd-watch-flexy #secondary {
     display: none !important;
+}
+
+ytd-watch-flexy {
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* Center the primary content */
+ytd-watch-flexy #primary {
+    margin: 0 auto !important;
 }
 
 /* Hide Shorts from navigation */

@@ -1,6 +1,5 @@
-// Block navigation to Shorts URLs and redirect home to feed
+// Redirect shorts, home page and trending to subscription feed
 function handleNavigation() {
-    // Redirect shorts, home page and trending to subscription feed
     if (window.location.pathname.startsWith('/shorts') ||
         window.location.pathname.endsWith('/shorts') ||
         window.location.pathname === '/' || 
