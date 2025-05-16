@@ -48,4 +48,8 @@ The extension consists of:
 
 ## Contributing
 
-Feel free to submit issues and enhancement requests! Together we can build a more mindful YouTube experience. 
+Feel free to submit issues and enhancement requests! Together we can build a more mindful YouTube experience.
+
+## License
+
+This project is licensed under the Mozilla Public License 2.0 (MPL-2.0) - see the [LICENSE](LICENSE) file for details.
