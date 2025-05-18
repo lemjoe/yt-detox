@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "YouTube Detox",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "homepage_url": "https://github.com/lemjoe/yt-detox",
   "description": "Transform YouTube into a focused, distraction-free space. Remove Shorts, recommendations, and stay in control of your viewing experience.",
   "author": "Alexander Ignatov",
@@ -19,15 +19,19 @@
   },
 
   "permissions": [
-    "*://*.youtube.com/*"
+    "*://*.youtube.com/*",
+    "*://*.returnyoutubedislikeapi.com/*"
   ],
 
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
       "css": ["styles/youtube-detox.css"],
-      "js": ["content-scripts/youtube-detox.js"],
-      "run_at": "document_start"
+      "js": [
+        "content-scripts/youtube-detox.js",
+        "content-scripts/return-youtube-dislike.js"
+      ],
+      "run_at": "document_end"
     }
   ]
 } 

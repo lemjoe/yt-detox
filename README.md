@@ -18,6 +18,12 @@ This Firefox extension transforms YouTube into a focused, distraction-free space
   - Removes Shorts from subscription feeds
   - Hides Shorts tab and navigation elements
 
+- **Restored Dislike Counter**
+  - Brings back the dislike count using Return YouTube Dislike API
+  - Seamlessly integrates with YouTube's native interface
+  - Shows accurate community feedback for better content evaluation
+  - Includes efficient caching for faster loading
+
 - **Clean, Focused Interface**
   - Centers video content for better viewing experience
   - Removes unnecessary navigation items
@@ -48,7 +54,8 @@ For permanent installation, check the Firefox Add-ons store - this extension mig
 The extension consists of:
 - `manifest.json`: Extension configuration
 - `styles/youtube-detox.css`: CSS rules for hiding elements and layout modifications
-- `content-scripts/youtube-detox.js`: JavaScript for handling dynamic content, navigation, and functionality
+- `content-scripts/youtube-detox.js`: JavaScript for handling dynamic content and navigation
+- `content-scripts/return-youtube-dislike.js`: JavaScript for dislike counter functionality
 
 ## Contributing
 

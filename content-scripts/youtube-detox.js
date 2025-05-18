@@ -97,20 +97,7 @@ observer.observe(document.body, {
     subtree: true
 });
 
-// Block programmatic navigation to shorts and handle home redirects
-const pushState = history.pushState;
-history.pushState = function() {
-    pushState.apply(history, arguments);
-    setTimeout(handleNavigation, 0);
-};
-
-const replaceState = history.replaceState;
-replaceState = function() {
-    replaceState.apply(history, arguments);
-    setTimeout(handleNavigation, 0);
-};
-
-// Also handle popstate events (browser back/forward buttons)
-window.addEventListener('popstate', () => {
-    setTimeout(handleNavigation, 0);
-}); 
+// Handle history changes without modifying the original methods
+window.addEventListener('pushState', handleNavigation);
+window.addEventListener('replaceState', handleNavigation);
+window.addEventListener('popstate', handleNavigation); 

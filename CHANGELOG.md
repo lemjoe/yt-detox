@@ -4,6 +4,12 @@ All notable changes to YouTube Detox will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-05-18
+### Added
+- Restored dislike counter functionality using Return YouTube Dislike API
+- Seamless integration of dislike counts into YouTube's native interface
+- Efficient caching system for dislike data
+
 ## [1.1.2] - 2025-05-17
 ### Fixed
 - Enhanced Shorts removal by hiding additional rich shelf elements in feeds

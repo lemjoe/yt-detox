@@ -55,6 +55,19 @@ ytd-reel-shelf-renderer {
     display: none !important;
 }
 
+/* Style for dislike button */
+dislike-button-view-model button.yt-spec-button-shape-next {
+    width: auto !important;
+    min-width: 32px;
+}
+
+/* Style for dislike button text content */
+.yt-spec-button-shape-next__button-text-content {
+    margin-left: 0;
+    min-width: 24px;
+    padding: 0 6px;
+}
+
 /* Hide unwanted sidebar elements */
 ytd-guide-entry-renderer[aria-label="Home"],
 ytd-mini-guide-entry-renderer[aria-label="Home"],
