@@ -46,6 +46,15 @@ ytd-mini-guide-entry-renderer a[title="Shorts"] {
     display: none !important;
 }
 
+/* Hide Shorts shelves and sections */
+ytd-rich-shelf-renderer:has(#dismissible),
+ytd-rich-shelf-renderer:has(#rich-shelf-header-container),
+ytd-rich-shelf-renderer:has(#title-text[title="Shorts"]),
+ytd-rich-section-renderer:has(#title-text[title="Shorts"]),
+ytd-reel-shelf-renderer {
+    display: none !important;
+}
+
 /* Hide unwanted sidebar elements */
 ytd-guide-entry-renderer[aria-label="Home"],
 ytd-mini-guide-entry-renderer[aria-label="Home"],
