@@ -47,7 +47,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a list of changes between versions.
 3. Click "Load Temporary Add-on"
 4. Navigate to the extension's directory and select the `manifest.json` file
 
-For permanent installation, check the Firefox Add-ons store - this extension might already be available there!
+For permanent installation, check the [Firefox Add-ons store](https://addons.mozilla.org/addon/yt-detox/)!
 
 ## Development
 
