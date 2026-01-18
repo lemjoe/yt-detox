@@ -39,6 +39,7 @@ function removeDistractingElements() {
     const endScreenSelectors = [
         'ytd-watch-next-secondary-results-renderer',  // End screen recommendations
         '.ytp-endscreen-content',                    // Video end screen overlay
+        '.ytp-fullscreen-grid',                      // New video end screen overlay
         '.ytp-ce-element'                           // Clickable end screen elements
     ];
 
