@@ -52,6 +52,10 @@ function removeDistractingElements() {
         'tp-yt-paper-tab:has(paper-item[role="tab"][aria-label="Shorts"])'  // Alternative Shorts tab structure
     ];
 
+    const noConnectionSelectors = [
+        'ytd-section-list-renderer' // No connection screen in the middle of redirect to subscriptions
+    ]
+
     // Remove sidebar elements
     const sidebarElements = document.querySelectorAll(sidebarSelectors.join(','));
     sidebarElements.forEach(element => element.remove());
@@ -63,6 +67,10 @@ function removeDistractingElements() {
     // Remove shorts from feeds
     const shortsElements = document.querySelectorAll(shortsSelectors.join(','));
     shortsElements.forEach(element => element.remove());
+
+    // Remove no connection screen
+    const noConnectionElements = document.querySelectorAll(noConnectionSelectors.join(','));
+    noConnectionElements.forEach(element => element.remove());
 }
 
 // Run immediately when script loads
