@@ -11,12 +11,17 @@ This Firefox extension transforms YouTube into a focused, distraction-free space
   - Eliminates end screen video suggestions
   - Removes the sidebar recommendations on video pages
   - Automatically redirects homepage to your subscription feed
+  - Rewrites Home links to open subscriptions instantly
 
 - **Shorts-Free Experience**
   - Completely removes YouTube Shorts
   - Blocks navigation to Shorts URLs
   - Removes Shorts from subscription feeds
   - Hides Shorts tab and navigation elements
+
+- **Posts-Free Experience**
+  - Removes YouTube Posts (Community posts) across feeds
+  - Hides Posts tabs and sections on channel pages
 
 - **Restored Dislike Counter**
   - Brings back the dislike count using Return YouTube Dislike API
