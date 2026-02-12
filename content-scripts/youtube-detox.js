@@ -74,6 +74,22 @@ function removeDistractingElements() {
         'tp-yt-paper-tab:has(paper-item[role="tab"][aria-label="Shorts"])'  // Alternative Shorts tab structure
     ];
 
+    const postsSelectors = [
+        'ytd-backstage-post-thread-renderer',                        // Community posts thread
+        'ytd-backstage-post-renderer',                               // Single community post
+        'ytd-post-renderer',                                         // Post renderer in feeds
+        'ytd-rich-item-renderer:has(ytd-backstage-post-renderer)',   // Rich item wrapping posts
+        'ytd-rich-item-renderer:has(ytd-post-renderer)',             // Rich item wrapping posts
+        'ytd-rich-section-renderer:has(ytd-backstage-post-renderer)',// Section with posts
+        'ytd-rich-section-renderer:has(ytd-post-renderer)',          // Section with posts
+        'yt-tab-shape[tab-title="Posts"]',                           // Posts tab in channel
+        'tp-yt-paper-tab:has(paper-item[role="tab"][aria-label="Posts"])',
+        'yt-tab-shape[tab-title="Записи"]',
+        'tp-yt-paper-tab:has(paper-item[role="tab"][aria-label="Записи"])',
+        'a[href^="/post/"]',                                         // Direct post links
+        'a[href*="/post/"]'
+    ];
+
     const noConnectionSelectors = [
         'ytd-section-list-renderer' // No connection screen in the middle of redirect to subscriptions
     ]
@@ -90,6 +106,10 @@ function removeDistractingElements() {
     const shortsElements = document.querySelectorAll(shortsSelectors.join(','));
     shortsElements.forEach(element => element.remove());
 
+    // Remove posts from feeds and channel tabs
+    const postsElements = document.querySelectorAll(postsSelectors.join(','));
+    postsElements.forEach(element => element.remove());
+
     // Remove no connection screen (avoid nuking channel page content)
     if (!isChannelPage()) {
         const noConnectionElements = document.querySelectorAll(noConnectionSelectors.join(','));
@@ -105,7 +125,10 @@ function removeDistractingElements() {
             'рекомендованные',
             'рекомендовано',
             'для вас',
-            'вам может понравиться'
+            'вам может понравиться',
+            'posts',
+            'записи',
+            'сообщество'
         ];
         const channelSections = document.querySelectorAll(
             'ytd-shelf-renderer, ytd-item-section-renderer, ytd-rich-section-renderer'
