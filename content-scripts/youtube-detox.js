@@ -33,6 +33,24 @@ function removeSectionsByTitle(containers, titles) {
     });
 }
 
+// Function to swap all Home links to Feed
+function updateHomeLinks() {
+    const homeSelectors = [
+        'a[href="/"]',
+        'a[href="/home"]',
+        'a[href^="/?"]',
+        'a[href^="/home?"]',
+        'a[href="https://www.youtube.com/"]',
+        'a[href="https://www.youtube.com"]',
+        'a[href="https://m.youtube.com/"]',
+        'a[href="https://m.youtube.com"]'
+    ];
+    const homeLinks = document.querySelectorAll(homeSelectors.join(','));
+    homeLinks.forEach(link => {
+        link.setAttribute('href', '/feed/subscriptions');
+    });
+}
+
 // Function to remove distracting elements from navigation
 function removeDistractingElements() {
     // Only clean up navigation elements
@@ -98,6 +116,9 @@ function removeDistractingElements() {
     const sidebarElements = document.querySelectorAll(sidebarSelectors.join(','));
     sidebarElements.forEach(element => element.remove());
 
+    // Rewrite home links to subscriptions for faster navigation
+    updateHomeLinks();
+
     // Remove end screen recommendations
     const endScreenElements = document.querySelectorAll(endScreenSelectors.join(','));
     endScreenElements.forEach(element => element.remove());
@@ -145,6 +166,7 @@ function removeDistractingElements() {
 // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
     handleNavigation();
+    updateHomeLinks();
     removeDistractingElements();
 });
 
@@ -155,12 +177,14 @@ new MutationObserver(() => {
     if (url !== lastUrl) {
         lastUrl = url;
         handleNavigation();
+        updateHomeLinks();
         removeDistractingElements();
     }
 }).observe(document, { subtree: true, childList: true });
 
 // Create an observer to handle dynamically loaded content
 const observer = new MutationObserver(() => {
+    updateHomeLinks();
     removeDistractingElements();
 });
 
