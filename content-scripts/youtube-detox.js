@@ -11,6 +11,28 @@ function handleNavigation() {
     }
 }
 
+// Function to process channels properly
+function isChannelPage() {
+    return window.location.pathname.startsWith('/@') ||
+        window.location.pathname.startsWith('/channel/') ||
+        window.location.pathname.startsWith('/c/');
+}
+
+// Function to remove sections by its titles
+function removeSectionsByTitle(containers, titles) {
+    const normalizedTitles = titles.map(t => t.toLowerCase());
+    containers.forEach(container => {
+        const titleEl = container.querySelector('#title-text');
+        if (!titleEl) {
+            return;
+        }
+        const title = titleEl.textContent.trim().toLowerCase();
+        if (normalizedTitles.some(t => title.includes(t))) {
+            container.remove();
+        }
+    });
+}
+
 // Function to remove distracting elements from navigation
 function removeDistractingElements() {
     // Only clean up navigation elements
@@ -68,9 +90,28 @@ function removeDistractingElements() {
     const shortsElements = document.querySelectorAll(shortsSelectors.join(','));
     shortsElements.forEach(element => element.remove());
 
-    // Remove no connection screen
-    const noConnectionElements = document.querySelectorAll(noConnectionSelectors.join(','));
-    noConnectionElements.forEach(element => element.remove());
+    // Remove no connection screen (avoid nuking channel page content)
+    if (!isChannelPage()) {
+        const noConnectionElements = document.querySelectorAll(noConnectionSelectors.join(','));
+        noConnectionElements.forEach(element => element.remove());
+    }
+
+    // On channel pages, remove Shorts and recommendation sections by title
+    if (isChannelPage()) {
+        const recommendationTitles = [
+            'recommended',
+            'for you',
+            'videos you may like',
+            'рекомендованные',
+            'рекомендовано',
+            'для вас',
+            'вам может понравиться'
+        ];
+        const channelSections = document.querySelectorAll(
+            'ytd-shelf-renderer, ytd-item-section-renderer, ytd-rich-section-renderer'
+        );
+        removeSectionsByTitle(Array.from(channelSections), recommendationTitles);
+    }
 }
 
 // Run immediately when script loads
