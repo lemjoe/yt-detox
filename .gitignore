@@ -1,0 +1,32 @@
+﻿# Build artifacts
+*.xpi
+*.zip
+web-ext-artifacts/
+dist/
+build/
+
+# Release history (local only)
+releases/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Firefox extension signing / local keys
+*.pem
+*.key
+*.p12
