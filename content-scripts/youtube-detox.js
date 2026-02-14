@@ -33,6 +33,50 @@ function removeSectionsByTitle(containers, titles) {
     });
 }
 
+// Function to detox search results
+function removeGarbageFromSearchResults() {
+    if (!window.location.pathname.startsWith('/results')) {
+        return;
+    }
+
+    const shortsMarkers = document.querySelectorAll(
+        'span.yt-core-attributed-string[role="text"]'
+    );
+
+    // Remove Shorts in search results
+    shortsMarkers.forEach((marker) => {
+        const label = (marker.textContent || '').trim().toLowerCase();
+        if (label !== 'shorts') {
+            return;
+        }
+
+        const shortsShelf = marker.closest('grid-shelf-view-model');
+        if (shortsShelf) {
+            shortsShelf.remove();
+        }
+    });
+
+    const blockedTitles = new Set([
+        'видео',
+        'watched',
+        'explore'
+    ]);
+    const dismissibleBlocks = document.querySelectorAll('div#dismissible');
+
+    // Remove dismissible recommendation shelves by title
+    dismissibleBlocks.forEach((block) => {
+        const titleEl = block.querySelector('#title');
+        const title = (titleEl?.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+        blockedTitles.forEach(titleToBlock => {
+            isBlockedDiv = title.includes(titleToBlock)
+            if (isBlockedDiv) {
+                block.remove();
+            }
+        });
+    });
+}
+
 // Function to swap all Home links to Feed
 function updateHomeLinks() {
     const homeSelectors = [
@@ -109,8 +153,8 @@ function removeDistractingElements() {
     ];
 
     const noConnectionSelectors = [
-        'ytd-section-list-renderer' // No connection screen in the middle of redirect to subscriptions
-    ]
+        'ytd-background-promo-renderer' // No connection screen in the middle of redirect to subscriptions
+    ];
 
     // Remove sidebar elements
     const sidebarElements = document.querySelectorAll(sidebarSelectors.join(','));
@@ -136,6 +180,9 @@ function removeDistractingElements() {
         const noConnectionElements = document.querySelectorAll(noConnectionSelectors.join(','));
         noConnectionElements.forEach(element => element.remove());
     }
+
+    // Detox search results
+    removeGarbageFromSearchResults();
 
     // On channel pages, remove Shorts and recommendation sections by title
     if (isChannelPage()) {
