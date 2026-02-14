@@ -4,6 +4,13 @@ All notable changes to YouTube Detox will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2026-02-14
+### Added
+- Fully cleaned YouTube search results from toxic and unwanted elements, including recommendation shelves and Shorts
+
+### Fixed
+- Restored proper processing of YouTube search results
+
 ## [1.3.0] - 2026-02-12
 ### Added
 - Removed YouTube Posts (Community posts) across feeds and channel pages
