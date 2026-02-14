@@ -5,7 +5,7 @@ web-ext-artifacts/
 dist/
 build/
 
-# Release history (local only)
+# Release history
 releases/
 
 # Dependencies
